@@ -12,6 +12,17 @@ import Step5Confirm from '@/modal/components/Step5Confirm';
 import Step6Success from '@/modal/components/Step6Success';
 import { validateZipCode } from '@/modal/utils/mockData';
 
+// Extend Window interface for Voiceflow
+declare global {
+  interface Window {
+    voiceflow: {
+      chat: {
+        load: (config: any) => void;
+      };
+    };
+  }
+}
+
 interface LeadCaptureModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -39,7 +50,6 @@ const LeadCaptureModal: React.FC<LeadCaptureModalProps> = ({ isOpen, onClose }) 
     },
     isEmergency: false
   });
-
 
   // Close modal with Escape key
   useKeyboardShortcut(
@@ -94,6 +104,50 @@ const LeadCaptureModal: React.FC<LeadCaptureModalProps> = ({ isOpen, onClose }) 
 
   const handleChatToggle = () => {
     setShowChat(!showChat);
+  };
+
+  // Use effect to load Voiceflow every time chat tab becomes active
+  useEffect(() => {
+    if (showChat) {
+      console.log('Chat tab is now active, loading Voiceflow...');
+      // Wait longer for DOM to be ready, then load Voiceflow
+      const timer = setTimeout(() => {
+        const targetElement = document.querySelector('#example-vf');
+        console.log('Target element found:', targetElement);
+        if (targetElement) {
+          console.log('Running Voiceflow initialization...');
+          loadVoiceflow();
+        } else {
+          console.error('Target element #example-vf not found');
+        }
+      }, 500); // Increased delay to ensure DOM is ready
+      
+      return () => clearTimeout(timer);
+    }
+  }, [showChat]);
+
+  const loadVoiceflow = () => {
+    (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        console.log('Voiceflow script loaded, initializing chat...');
+        window.voiceflow.chat.load({
+          verify: { projectID: '686ff84f7f5efc148cd1149d' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production',
+          voice: {
+            url: "https://runtime-api.voiceflow.com"
+          },
+          render: {
+            mode: 'embedded',
+            target: document.querySelector('#example-vf')
+          }
+        });
+      };
+      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; 
+      v.type = "text/javascript"; 
+      s.parentNode.insertBefore(v, s);
+    })(document, 'script');
   };
 
   const handleBackToBooking = () => {
@@ -226,9 +280,8 @@ const LeadCaptureModal: React.FC<LeadCaptureModalProps> = ({ isOpen, onClose }) 
             className="absolute bottom-6 right-6 bg-white rounded-2xl shadow-2xl w-96 max-h-[80vh] h-[700px] overflow-hidden border border-gray-200 flex flex-col"
             style={{ transformOrigin: 'bottom right' }}
           >
-            {/* Header (hidden on success screen and chat mode) */}
-            {currentStep !== 6 && !showChat && <ModalHeader onClose={handleClose} />}
-            {showChat && (
+            {/* Header */}
+            {showChat ? (
               <div className="bg-white border-b border-gray-200 p-4 rounded-t-2xl">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
@@ -251,6 +304,8 @@ const LeadCaptureModal: React.FC<LeadCaptureModalProps> = ({ isOpen, onClose }) 
                   </button>
                 </div>
               </div>
+            ) : (
+              currentStep !== 6 && <ModalHeader onClose={handleClose} />
             )}
             
             {/* Content */}
@@ -424,7 +479,7 @@ const LeadCaptureModal: React.FC<LeadCaptureModalProps> = ({ isOpen, onClose }) 
               </AnimatePresence>
             </div>
             
-            {/* Fixed Footer (hidden in chat mode) */}
+            {/* Footer - Only show for booking mode */}
             {!showChat && (
               <div className="border-t border-gray-200 bg-white rounded-b-2xl">
                 {/* Have Questions Button */}
@@ -441,6 +496,7 @@ const LeadCaptureModal: React.FC<LeadCaptureModalProps> = ({ isOpen, onClose }) 
                   </motion.button>
                 </div>
                 
+                {/* Action Buttons */}
                 <div className="p-4">
                   <div className="flex justify-between items-center">
                     {/* Emergency Button (hidden on success screen) */}
@@ -458,106 +514,107 @@ const LeadCaptureModal: React.FC<LeadCaptureModalProps> = ({ isOpen, onClose }) 
                     
                     {/* Spacer for success screen */}
                     {currentStep === 6 && <div></div>}
-                
-                {/* Action Buttons */}
-                <div className="flex gap-3">
-                  {currentStep === 1 && (
-                    <>
-                      <motion.button
-                        whileHover={{ scale: 1.01 }}
-                        whileTap={{ scale: 0.99 }}
-                        transition={{ duration: 0.1 }}
-                        onClick={handleClose}
-                        className="px-4 py-2 bg-gray-200 text-text-dark rounded-lg hover:bg-gray-300 transition-colors text-sm"
-                      >
-                        Cancel
-                      </motion.button>
-                      <motion.button
-                        whileHover={{ scale: 1.01 }}
-                        whileTap={{ scale: 0.99 }}
-                        transition={{ duration: 0.1 }}
-                        onClick={handleStep1Confirm}
-                        disabled={isValidating || !bookingData.zipCode || bookingData.zipCode.length !== 5}
-                        className="px-4 py-2 bg-tertiary text-white rounded-lg hover:bg-secondary transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm"
-                      >
-                        {isValidating ? (
-                          <div className="flex items-center gap-2">
-                            <motion.div
-                              animate={{ rotate: 360 }}
-                              transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
-                              className="w-3 h-3 border-2 border-white border-t-transparent rounded-full"
-                            />
-                            Checking...
-                          </div>
-                        ) : (
-                          'Confirm'
-                        )}
-                      </motion.button>
-                    </>
-                  )}
-                  
-                  {currentStep === 2 && (
-                    <motion.button
-                      whileHover={{ scale: 1.01 }}
-                      whileTap={{ scale: 0.99 }}
-                      transition={{ duration: 0.1 }}
-                      onClick={handleNext}
-                      disabled={!canContinueStep2()}
-                      className="px-4 py-2 bg-tertiary text-white rounded-lg hover:bg-secondary transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm"
-                    >
-                      Continue Booking
-                    </motion.button>
-                  )}
-                  
-                  {currentStep === 3 && (
-                    <motion.button
-                      whileHover={{ scale: 1.01 }}
-                      whileTap={{ scale: 0.99 }}
-                      transition={{ duration: 0.1 }}
-                      onClick={handleNext}
-                      disabled={!canContinueStep3()}
-                      className="px-4 py-2 bg-tertiary text-white rounded-lg hover:bg-secondary transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm"
-                    >
-                      Continue Booking
-                    </motion.button>
-                  )}
-                  
-                  {currentStep === 4 && (
-                    <motion.button
-                      whileHover={{ scale: 1.01 }}
-                      whileTap={{ scale: 0.99 }}
-                      transition={{ duration: 0.1 }}
-                      onClick={handleNext}
-                      disabled={!canContinueStep4()}
-                      className="px-4 py-2 bg-tertiary text-white rounded-lg hover:bg-secondary transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm"
-                    >
-                      Continue
-                    </motion.button>
-                  )}
+                    
+                    {/* Step Action Buttons */}
+                    <div className="flex gap-3">
+                      {currentStep === 1 && (
+                        <>
+                          <motion.button
+                            whileHover={{ scale: 1.01 }}
+                            whileTap={{ scale: 0.99 }}
+                            transition={{ duration: 0.1 }}
+                            onClick={handleClose}
+                            className="px-4 py-2 bg-gray-200 text-text-dark rounded-lg hover:bg-gray-300 transition-colors text-sm"
+                          >
+                            Cancel
+                          </motion.button>
+                          <motion.button
+                            whileHover={{ scale: 1.01 }}
+                            whileTap={{ scale: 0.99 }}
+                            transition={{ duration: 0.1 }}
+                            onClick={handleStep1Confirm}
+                            disabled={isValidating || !bookingData.zipCode || bookingData.zipCode.length !== 5}
+                            className="px-4 py-2 bg-tertiary text-white rounded-lg hover:bg-secondary transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                          >
+                            {isValidating ? (
+                              <div className="flex items-center gap-2">
+                                <motion.div
+                                  animate={{ rotate: 360 }}
+                                  transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
+                                  className="w-3 h-3 border-2 border-white border-t-transparent rounded-full"
+                                />
+                                Checking...
+                              </div>
+                            ) : (
+                              'Confirm'
+                            )}
+                          </motion.button>
+                        </>
+                      )}
+                      
+                      {currentStep === 2 && (
+                        <motion.button
+                          whileHover={{ scale: 1.01 }}
+                          whileTap={{ scale: 0.99 }}
+                          transition={{ duration: 0.1 }}
+                          onClick={handleNext}
+                          disabled={!canContinueStep2()}
+                          className="px-4 py-2 bg-tertiary text-white rounded-lg hover:bg-secondary transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                        >
+                          Continue Booking
+                        </motion.button>
+                      )}
+                      
+                      {currentStep === 3 && (
+                        <motion.button
+                          whileHover={{ scale: 1.01 }}
+                          whileTap={{ scale: 0.99 }}
+                          transition={{ duration: 0.1 }}
+                          onClick={handleNext}
+                          disabled={!canContinueStep3()}
+                          className="px-4 py-2 bg-tertiary text-white rounded-lg hover:bg-secondary transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                        >
+                          Continue Booking
+                        </motion.button>
+                      )}
+                      
+                      {currentStep === 4 && (
+                        <motion.button
+                          whileHover={{ scale: 1.01 }}
+                          whileTap={{ scale: 0.99 }}
+                          transition={{ duration: 0.1 }}
+                          onClick={handleNext}
+                          disabled={!canContinueStep4()}
+                          className="px-4 py-2 bg-tertiary text-white rounded-lg hover:bg-secondary transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                        >
+                          Continue
+                        </motion.button>
+                      )}
 
-                  {currentStep === 5 && (
-                    <motion.button
-                      whileHover={{ scale: 1.01 }}
-                      whileTap={{ scale: 0.99 }}
-                      transition={{ duration: 0.1 }}
-                      onClick={handleConfirmBooking}
-                      className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm"
-                    >
-                      Confirm Booking
-                    </motion.button>
-                  )}
+                      {currentStep === 5 && (
+                        <motion.button
+                          whileHover={{ scale: 1.01 }}
+                          whileTap={{ scale: 0.99 }}
+                          transition={{ duration: 0.1 }}
+                          onClick={handleConfirmBooking}
+                          className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm"
+                        >
+                          Confirm Booking
+                        </motion.button>
+                      )}
 
-                  {currentStep === 6 && (
-                    <motion.button
-                      whileHover={{ scale: 1.01 }}
-                      whileTap={{ scale: 0.99 }}
-                      transition={{ duration: 0.1 }}
-                      onClick={handleClose}
-                      className="px-6 py-2 bg-tertiary text-white rounded-lg hover:bg-secondary transition-colors text-sm"
-                    >
-                      Close
-                    </motion.button>
-                  )}
+                      {currentStep === 6 && (
+                        <motion.button
+                          whileHover={{ scale: 1.01 }}
+                          whileTap={{ scale: 0.99 }}
+                          transition={{ duration: 0.1 }}
+                          onClick={handleClose}
+                          className="px-6 py-2 bg-tertiary text-white rounded-lg hover:bg-secondary transition-colors text-sm"
+                        >
+                          Close
+                        </motion.button>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
