@@ -29,6 +29,9 @@ export default defineConfig({
   trailingSlash: config.site.trailing_slash ? "always" : "never",
   image: { service: sharp() },
   vite: { plugins: [tailwindcss()] },
+  experimental: {
+    session: true
+  },
 
   integrations: [
     react(),
