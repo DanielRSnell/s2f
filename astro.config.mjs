@@ -11,6 +11,8 @@ import sharp from "sharp";
 import { remarkModifiedTime } from "./remark-modified-time.mjs";
 import config from "./src/config/config.json";
 
+import netlify from "@astrojs/netlify";
+
 let highlighter;
 async function getHighlighter() {
   if (!highlighter) {
@@ -27,6 +29,7 @@ export default defineConfig({
   trailingSlash: config.site.trailing_slash ? "always" : "never",
   image: { service: sharp() },
   vite: { plugins: [tailwindcss()] },
+
   integrations: [
     react(),
     sitemap(),
@@ -43,6 +46,7 @@ export default defineConfig({
     }),
     mdx(),
   ],
+
   markdown: {
     remarkPlugins: [
       remarkModifiedTime,
@@ -62,4 +66,6 @@ export default defineConfig({
     extendDefaultPlugins: true,
     highlighter: getHighlighter,
   },
+
+  adapter: netlify()
 });
