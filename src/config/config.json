@@ -1,0 +1,44 @@
+{
+  "site": {
+    "title": "Street2Fleet",
+    "base_url": "https://street2fleet.com",
+    "base_path": "/",
+    "trailing_slash": true,
+    "favicon": "/images/s2f-assets/Icon.png",
+    "logo": "/images/s2f-assets/Dark Logo.png",
+    "logo_width": "200",
+    "logo_height": "60",
+    "logo_text": "Street2Fleet"
+  },
+
+  "settings": {
+    "pagination": 3,
+    "summary_length": 120,
+    "blog_folder": "blog"
+  },
+
+  "params": {
+    "contact_form_action": "#",
+    "footer_description": "Streamline Your Home Service Business: Your Trusted Partner in Real-Time Scheduling with Cutting Edge Solutions for Booking Automation.",
+    "copyright": "Copyright © {year} Street2Fleet. All Rights Reserved"
+  },
+
+  "subscription": {
+    "enable": true,
+    "action": "#",
+    "title": "Subscribe to Our Newsletter!",
+    "description": "Stay Informed with Our Latest Scheduling Tips and Business Insights - Subscribe to Our Newsletter!"
+  },
+
+  "navigation_button": {
+    "enable": true,
+    "label": "Book Demo",
+    "link": "/contact/"
+  },
+
+  "metadata": {
+    "meta_author": "Street2Fleet",
+    "meta_image": "/images/og-image.png",
+    "meta_description": "Real-Time Scheduling Software for Home Service Businesses"
+  }
+}
