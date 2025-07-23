@@ -1,30 +1,32 @@
 ---
-title: Terms Conditions
-meta_title: ""
-description: "this is meta description"
+title: Terms & Conditions
+meta_title: "Terms & Conditions - Street2Fleet"
+description: "Street2Fleet's Terms & Conditions governing the use of our online scheduling software for home service businesses."
 draft: false
 ---
 
-#### Responsibility of Contributors
+#### Acceptance of Terms
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus. Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed
+By using Street2Fleet's scheduling software, you agree to be bound by these Terms & Conditions. If you do not agree to these terms, please do not use our services. These terms apply to all users of our platform, including both service providers and customers scheduling appointments.
 
-pretium, aliquam sit. Praesent elementum magna amet, tincidunt eros, nibh in leo. Malesuada purus, lacus, at aliquam suspendisse tempus. Quis tempus amet, velit nascetur sollicitudin. At sollicitudin eget amet in. Eu velit nascetur sollicitudin erhdfvssfvrgss eget viverra nec elementum. Lacus, facilisis tristique lectus in.
+#### Service Description
 
-#### Gathering of Personal Information
+Street2Fleet provides online scheduling software that enables home service businesses to manage appointments, integrate with CRM systems, and automate customer communications. Our platform facilitates real-time booking, sends automated confirmations, and streamlines the scheduling process for both businesses and their customers.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus. Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed
+#### User Responsibilities
 
-#### Protection of Personal- Information
+Service providers using our platform are responsible for maintaining accurate availability information, providing quality services to customers who book through our system, responding promptly to booking requests and customer communications, and ensuring compliance with all applicable laws and regulations in their service area.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus.
+Customers using our booking system agree to provide accurate contact information, honor scheduled appointments or provide reasonable notice of cancellations, and use the platform only for legitimate scheduling purposes.
 
-Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat
+#### Service Availability and Modifications
 
-#### Privacy Policy Changes
+We strive to maintain continuous service availability but cannot guarantee uninterrupted access to our platform. We may temporarily suspend service for maintenance, updates, or technical issues. We reserve the right to modify, update, or discontinue features of our service with reasonable notice to users.
 
-1. Sll the Themefisher items are designed to be with the latest , We check all
-2. comments that threaten or harm the reputation of any person or organization
-3. personal information including, but limited to, email addresses, telephone numbers
-4. Any Update come in The technology Customer will get automatic Notification.
+#### Limitation of Liability
+
+Street2Fleet serves as a scheduling platform connecting service providers with customers. We are not responsible for the quality of services provided by businesses using our platform, disputes between service providers and customers, or any damages resulting from missed appointments or scheduling conflicts.
+
+#### Terms Updates
+
+We may update these Terms & Conditions periodically to reflect changes in our services or legal requirements. Users will be notified of material changes, and continued use of our platform constitutes acceptance of the updated terms.

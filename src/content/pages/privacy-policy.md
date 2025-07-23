@@ -1,30 +1,28 @@
 ---
 title: Privacy Policy
-meta_title: ""
-description: "this is meta description"
+meta_title: "Privacy Policy - Street2Fleet"
+description: "Street2Fleet's Privacy Policy outlining how we collect, use, and protect your personal information when using our scheduling software."
 draft: false
 ---
 
-#### Responsibility of Contributors
+#### Information We Collect
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus. Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed
+When you use Street2Fleet's scheduling software, we may collect certain information to provide and improve our services. This includes contact information you provide when setting up appointments, business information for service providers, and usage data to enhance our platform's functionality.
 
-pretium, aliquam sit. Praesent elementum magna amet, tincidunt eros, nibh in leo. Malesuada purus, lacus, at aliquam suspendisse tempus. Quis tempus amet, velit nascetur sollicitudin. At sollicitudin eget amet in. Eu velit nascetur sollicitudin erhdfvssfvrgss eget viverra nec elementum. Lacus, facilisis tristique lectus in.
+#### How We Use Your Information
 
-#### Gathering of Personal Information
+We use the information collected to facilitate appointment scheduling between customers and home service businesses, send appointment confirmations and reminders via text message, integrate with CRM systems like ServiceTitan for seamless workflow management, and improve our scheduling platform's features and performance.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus. Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed
+#### Protection of Personal Information
 
-#### Protection of Personal- Information
+Street2Fleet takes the security of your personal information seriously. We implement appropriate technical and organizational measures to protect your data against unauthorized access, alteration, disclosure, or destruction. Your information is stored securely and accessed only by authorized personnel who need it to provide our services.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat quisque aliquam sagittis. Sem turpis sed viverra massa gravida pharetra. Non dui dolor potenti eu dignissim fusce. Ultrices amet, in curabitur a arcu a lectus morbi id. Iaculis erat sagittis in tortor cursus.
+We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as necessary to provide our scheduling services or as required by law.
 
-Molestie urna eu tortor, erat scelerisque eget. Nunc hendrerit sed interdum lacus. Lorem quis viverra sed
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Purus, donec nunc eros, ullamcorper id feugiat
+#### Data Sharing and Integration
 
-#### Privacy Policy Changes
+Our platform integrates with CRM systems to streamline your workflow. When you connect Street2Fleet with your CRM (such as ServiceTitan), we share relevant appointment and customer information as needed to synchronize your scheduling data and maintain accurate records across platforms.
 
-1. Sll the Themefisher items are designed to be with the latest , We check all
-2. comments that threaten or harm the reputation of any person or organization
-3. personal information including, but limited to, email addresses, telephone numbers
-4. Any Update come in The technology Customer will get automatic Notification.
+#### Privacy Policy Updates
+
+We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. We will notify users of any material changes by posting the updated policy on our website and, where appropriate, through other communication channels. Your continued use of our services after such updates constitutes acceptance of the revised policy.
