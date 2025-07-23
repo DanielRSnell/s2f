@@ -1,24 +1,3 @@
 [build]
-publish = "dist"
-command = "rm -rf node_modules package-lock.json && npm install --no-optional && npm run build"
-
-[build.environment]
-NODE_VERSION = "20.19.4"
-NPM_FLAGS = "--no-optional"
-NETLIFY_USE_YARN = "false"
-NODE_OPTIONS = "--max_old_space_size=4096"
-SKIP_INSTALL_DEPS = "false"
-
-[build.processing]
-skip_processing = false
-
-[build.processing.css]
-bundle = true
-minify = true
-
-[build.processing.js]
-bundle = true
-minify = true
-
-[build.processing.html]
-pretty_urls = true
+  command = "npm run build"
+  publish = "dist"
