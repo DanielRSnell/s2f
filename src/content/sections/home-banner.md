@@ -1,7 +1,7 @@
 ---
 # Banner
-title: "ServiceTitan Scheduler AI: Boost Home Service Bookings 3x Faster"
-description: "Transform Your Booking Process: Increase booking rates, reduce administrative overhead, and provide <br> 24/7 scheduling convenience for your customers."
+title: "Street2Fleet: Streamline Your Home Service Scheduling"
+description: "Transform Your Customer Experience: Increase booking rates, eliminate phone tag, and provide <br> 24/7 scheduling convenience with real-time CRM integration."
 bg_image: "/images/banner-bg.png"
 images:
   - src: "/images/banner-main.png" # Main Image
@@ -17,9 +17,9 @@ images:
     alt: "image alt"
 buttons:
   - enable: true
-    label: "Book Demo"
+    label: "Schedule Demo"
     link: "/contact/"
   - enable: true
-    label: "View Features"
+    label: "See How It Works"
     link: "/features/"
 ---
