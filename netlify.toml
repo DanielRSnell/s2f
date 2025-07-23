@@ -1,6 +1,7 @@
 [build]
 publish = "dist"
-command = "yarn build"
+command = "rm -rf node_modules && yarn install --frozen-lockfile && yarn build"
 
 [build.environment]
-NODE_VERSION = "20"
+NODE_VERSION = "20.19.4"
+YARN_CACHE_FOLDER = ".yarn-cache"
