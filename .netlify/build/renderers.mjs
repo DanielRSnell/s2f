@@ -1,8 +1,6 @@
 import React, { createElement } from 'react';
 import ReactDOM from 'react-dom/server';
-import { v as renderJSX, w as createVNode, x as AstroJSX, y as AstroUserError } from './chunks/astro/server_CtSX6tUJ.mjs';
-import 'kleur/colors';
-import 'clsx';
+import { v as renderJSX, w as createVNode, x as AstroJSX, y as AstroUserError } from './chunks/astro/server_BxMofQ_M.mjs';
 
 const contexts = new WeakMap();
 
@@ -303,6 +301,6 @@ const renderer = {
 };
 var server_default = renderer;
 
-const renderers = [Object.assign({"name":"@astrojs/react","clientEntrypoint":"@astrojs/react/client.js","serverEntrypoint":"@astrojs/react/server.js"}, { ssr: _renderer0 }),Object.assign({"name":"astro:jsx","serverEntrypoint":"file:///Users/broke/projects/s2f/node_modules/@astrojs/mdx/dist/server.js"}, { ssr: server_default }),];
+const renderers = [Object.assign({"name":"@astrojs/react","clientEntrypoint":"@astrojs/react/client.js","serverEntrypoint":"@astrojs/react/server.js"}, { ssr: _renderer0 }),Object.assign({"name":"astro:jsx","serverEntrypoint":"file:///Users/broke/projects/s2f/node_modules/.pnpm/@astrojs+mdx@4.1.0_astro@5.4.1_@netlify+blobs@10.0.7_@types+node@22.13.9_jiti@2.5.0_lightning_3s3cvho2otagdvm4ldpz2lgxom/node_modules/@astrojs/mdx/dist/server.js"}, { ssr: server_default }),];
 
 export { renderers };
